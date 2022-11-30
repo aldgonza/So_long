@@ -1,0 +1,37 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aldgonza <aldgonza@student.42barcel>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/28 17:49:32 by aldgonza          #+#    #+#              #
+#    Updated: 2022/11/28 17:50:33 by aldgonza         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	= so_long
+HEADER	= so_long.h
+SRCS	= so_long.c \
+
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
+OBJS	= ${SRCS:%.c=%.o}
+
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): ${HEADER} ${OBJS}
+		ar rc $(NAME) $(OBJS)
+
+
+all: $(NAME)
+
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
