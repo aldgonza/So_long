@@ -6,7 +6,7 @@
 /*   By: aldgonza <aldgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 11:32:46 by aldgonza          #+#    #+#             */
-/*   Updated: 2022/11/30 17:26:59 by aldgonza         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:36:40 by aldgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -69,7 +69,7 @@ int	so_long()
 	mlx_put_image_to_window(game.mlx, game.window,
 		game.image, game.position_x, game.position_y);
 
-	mlx_key_hook(game.window, *ft_input, &game);
+	mlx_hook(game.window, 2, 0, *ft_input, &game);
 	mlx_loop_hook(game.mlx, *ft_update, &game);
 
 	mlx_loop(game.mlx);
