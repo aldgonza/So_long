@@ -1,6 +1,8 @@
 NAME	= test.nope
 
 SRCS	= so_long.c \
+		  GNL/get_next_line.c \
+		  GNL/get_next_line_utils.c \
 
 DEP		= ilibmlx.a \
 
@@ -14,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(SRCS) $(DEP)
 	@echo "COMPILANDO PERRO!"
-	@sleep 0.5
+	@sleep 0.3
 	@$(GCC) $(FLAGS) $(MLXF) $(SRCS) main.c -o $(NAME)
 	@echo "DONE!"
 clean:
